@@ -7,6 +7,23 @@ router.route('/').get((req,res) => {
     .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/login').post((req,res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    res.json("responce: " + username + " " + password)
+})
+
+router.route('/register').post((req,res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    
+    const new_user = new User({username, password});
+
+    new_user.save()
+        .then(() => res.json("user registered successfully"))
+        .catch(err => res.status(400).json("Error: " + err))
+})
+
 router.route('/add').post((req,res) => {
     const username = req.body.username;
 
