@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Route , Switch} from 'react-router-dom';
 
 import choice_page from './Components/choice-page'
 import login from './Components/Login'
+import {User_provider} from './utils/user_context'
 
 
 function App() {
   return (
+    <User_provider>
     <div className='App'>
       <Router>|
         <Switch>
@@ -17,6 +19,7 @@ function App() {
       
       </Router>
     </div>
+    </User_provider>
   );
 }
 
