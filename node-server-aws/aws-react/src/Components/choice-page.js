@@ -6,9 +6,7 @@ import all_that from '../files/bensound-allthat.mp3'
 import ReactAudioPlayer from 'react-audio-player';
 
 
-
-function choice_page () {
-
+function Choice_page () {
     return (
         <div className = 'App'>
             <header><h1>Pick the track you like best!</h1></header>
@@ -38,4 +36,4 @@ function choice_page () {
     )
 }
 
-export default choice_page
+export default Choice_page

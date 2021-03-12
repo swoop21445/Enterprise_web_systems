@@ -22,7 +22,7 @@ function Login () {
             if (result.auth === true) {
                 setUser(result.id);
                 setAuth(true);
-                history.push('/main:result.id')
+                history.push(('/main/' + String(result.id)))
             }
         })
     }

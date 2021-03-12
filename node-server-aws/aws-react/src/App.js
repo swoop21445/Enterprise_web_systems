@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import './App.css';
-import { BrowserRouter as Router, Route , Switch, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route , Switch, Redirect, useParams} from 'react-router-dom';
 
-import choice_page from './Components/choice-page'
+import Choice_page from './Components/choice-page'
 import login from './Components/Login'
 import {UserContext} from './utils/user_context'
 import { AuthContext } from './utils/auth_context';
@@ -19,7 +19,7 @@ function App() {
           <Router>|
             <Switch>
               <Route exact path="/" component={login}/>
-              <Route path="/main"  component={choice_page} />
+              <Route path="/main"  component={Choice_page} />
             </Switch>
           
           </Router>

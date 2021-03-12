@@ -9,12 +9,9 @@ router.route('/').get((req,res) => {
 
 router.route('/login').post((req,res) => {
     const user = req.body.username;
-    console.log(user)
     const pass = req.body.password;
-    console.log(pass)
-    let search = User.findOne({username: user})
+    User.findOne({username: user})
         .then(login_data => {if (login_data.password === pass){
-            console.log(login_data.password)
             res.json({auth:true,
             id:login_data.id})
             console.log("auth passed")
