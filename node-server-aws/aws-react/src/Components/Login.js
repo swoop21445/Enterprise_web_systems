@@ -1,8 +1,9 @@
 import { useState, useContext } from "react"
 import axios from "axios"
 import { UserContext } from "../utils/user_context"
-import {Redirect} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import { AuthContext } from "../utils/auth_context"
+
 
 
 
@@ -12,15 +13,16 @@ function Login () {
     const {user, setUser} = useContext(UserContext)
     const {auth, setAuth} = useContext(AuthContext)
     
+    const history = useHistory();
+
     function login_click(){
         axios.post('http://localhost:5000/users/login', {username: username , password: password})
         .then(res => {
             const result = res.data;
             if (result.auth === true) {
-                setUser(username);
+                setUser(result.id);
                 setAuth(true);
-                console.log("gets to redirect");
-                <Redirect to="/main" />
+                history.push('/main:result.id')
             }
         })
     }

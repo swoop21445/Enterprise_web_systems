@@ -8,6 +8,7 @@ import ReactAudioPlayer from 'react-audio-player';
 
 
 function choice_page () {
+
     return (
         <div className = 'App'>
             <header><h1>Pick the track you like best!</h1></header>

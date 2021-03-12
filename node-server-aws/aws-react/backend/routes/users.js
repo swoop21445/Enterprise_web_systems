@@ -8,9 +8,21 @@ router.route('/').get((req,res) => {
 })
 
 router.route('/login').post((req,res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    res.json("responce: " + username + " " + password)
+    const user = req.body.username;
+    console.log(user)
+    const pass = req.body.password;
+    console.log(pass)
+    let search = User.findOne({username: user})
+        .then(login_data => {if (login_data.password === pass){
+            console.log(login_data.password)
+            res.json({auth:true,
+            id:login_data.id})
+            console.log("auth passed")
+        } else {
+            res.json({auth:false})
+            console.log("auth failed")
+        }})
+        .catch(err => res.status(400).json('Error: ' + err))
 })
 
 router.route('/register').post((req,res) => {
