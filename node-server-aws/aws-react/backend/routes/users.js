@@ -25,22 +25,31 @@ router.route('/login').post((req,res) => {
 router.route('/register').post((req,res) => {
     const username = req.body.username;
     const password = req.body.password;
+    const song = "default"
     
-    const new_user = new User({username, password});
+    const new_user = new User({username, password, song});
 
     new_user.save()
-        .then(() => res.json("user registered successfully"))
+        .then(() => res.json("user registered successfuly"))
         .catch(err => res.status(400).json("Error: " + err))
 })
 
-router.route('/add').post((req,res) => {
-    const username = req.body.username;
+router.route('/admin_check').post((req,res) => {
+    const username = req.body.username
+})
 
-    const new_user = new User({username});
+router.route('/update').post((req,res) => {
+    const user = req.body.user;
+    const song = req.body.song;
+    console.log(user)
+    console.log(typeof id)
+    console.log(song)
+    const query = {username: user}
 
-    new_user.save()
-        .then(() => res.json('User added'))
+    User.findOneAndUpdate(query, {song:song})
+        .then(() => res.json("song updated"))
         .catch(err => res.status(400).json('Error: ' + err))
 })
+
 
 module.exports = router;

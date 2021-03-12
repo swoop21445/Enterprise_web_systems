@@ -3,17 +3,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const choice_Schema = new Schema({
-    username: { 
+    user: { 
         type: String,
         required: true,
-        unique: true,
     },
-    song_choice: {
+    song: {
         type: String,
-        required: true,
     }
 },{
-    timestamps: true
+    timestamps: false
 })
 
 

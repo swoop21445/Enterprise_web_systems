@@ -22,7 +22,8 @@ function Login () {
             if (result.auth === true) {
                 setUser(result.id);
                 setAuth(true);
-                history.push(('/main/' + String(result.id)))
+                console.log(result.id)
+                history.push(('/main/' + result.id + '/' + (username)))
             }
         })
     }
