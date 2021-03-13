@@ -41,14 +41,23 @@ router.route('/admin_check').post((req,res) => {
 router.route('/update').post((req,res) => {
     const user = req.body.user;
     const song = req.body.song;
-    console.log(user)
-    console.log(typeof id)
-    console.log(song)
     const query = {username: user}
 
     User.findOneAndUpdate(query, {song:song})
         .then(() => res.json("song updated"))
         .catch(err => res.status(400).json('Error: ' + err))
+})
+
+router.route('/octane').get((req,res) => {
+    User.countDocuments({song:"High Octane"})
+        .then(high_octane => res.json({octane:high_octane}))
+        .catch(err => res.status(400).json("Error: " + err))
+})
+
+router.route('/all_that').get((req,res) => {
+    User.countDocuments({song:"All That"})
+        .then(All_that => res.json({all_that: All_that}))
+        .catch(err => res.status(400).json("Error: " + err))
 })
 
 

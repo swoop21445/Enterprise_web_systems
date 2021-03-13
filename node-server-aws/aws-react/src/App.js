@@ -7,6 +7,7 @@ import login from './Components/Login'
 import { UserContext } from './utils/user_context'
 import { AuthContext } from './utils/auth_context';
 import thank_you from './Components/thank_you';
+import Dashboard from './Components/dashboard';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
             <Switch>
               <Route path="/" exact component={login}/>
               <Route path="/main/:id/:username"  component={Choice_page} />
-              <Route path="/dashboard/:username" />
+              <Route path="/dashboard" component={Dashboard}/>
               <Route path="/thank_you" component={thank_you} />
             </Switch>
           </Router>
