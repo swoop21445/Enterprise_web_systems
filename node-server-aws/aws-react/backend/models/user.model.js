@@ -18,6 +18,9 @@ const user_Schema = new Schema({
     },
     song :{
         type: String,
+    },
+    admin:{
+        type: Boolean,
     }
 },{
     timestamps: true

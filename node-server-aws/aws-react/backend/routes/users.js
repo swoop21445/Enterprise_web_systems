@@ -25,9 +25,10 @@ router.route('/login').post((req,res) => {
 router.route('/register').post((req,res) => {
     const username = req.body.username;
     const password = req.body.password;
-    const song = "default"
+    const song = "default";
+    const admin = false;
     
-    const new_user = new User({username, password, song});
+    const new_user = new User({username, password, song, admin});
 
     new_user.save()
         .then(() => res.json("user registered successfuly"))
@@ -36,6 +37,14 @@ router.route('/register').post((req,res) => {
 
 router.route('/admin_check').post((req,res) => {
     const username = req.body.username
+    User.findOne({username: username})
+        .then(admin_check => {if (admin_check.admin){
+            res.json({admin:true})
+        } else {
+            res.json({admin:false})
+        }})
+        .catch(err => res.status(400).json('Error: ' + err))
+
 })
 
 router.route('/update').post((req,res) => {

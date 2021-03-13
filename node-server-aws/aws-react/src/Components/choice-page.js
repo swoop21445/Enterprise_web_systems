@@ -5,7 +5,7 @@ import all_that from '../files/bensound-allthat.mp3'
 
 import ReactAudioPlayer from 'react-audio-player';
 import { useHistory, useParams } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../utils/auth_context';
 import { UserContext } from '../utils/user_context';
 import axios from 'axios'
@@ -15,6 +15,7 @@ function Choice_page () {
     let {id , username} = useParams();
     const {auth, setAuth} = useContext(AuthContext);
     const {user,setUser} = useContext(UserContext)
+    const [admin, setAdmin] = useState(false)
     const history = useHistory();
 
     useEffect(() => {
@@ -34,6 +35,30 @@ function Choice_page () {
         history.push('/thank_you')
         })
 
+    }
+
+    function dashboard_button(){
+        return (
+        <button className='track_select' onClick={ () => history.push("/dashboard/" + username)}>
+            go to dashboard
+            </button>)
+    }
+
+    function admin_post(){
+        axios.post('http://localhost:5000/users/admin_check', {username: username})
+                .then(res => {
+                    const result = res.data
+                    setAdmin(result.admin)
+                })
+    }
+
+    function Dashboardlink(){
+        var rendered_item = (<div></div>)
+        admin_post()
+        if (admin) {
+            rendered_item = dashboard_button()
+        }
+        return rendered_item
     }
 
     return (
@@ -65,6 +90,7 @@ function Choice_page () {
                     </div>
                 </div>
             </div>
+            <Dashboardlink/>
       </div>
     )
 }
