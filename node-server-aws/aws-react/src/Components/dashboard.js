@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import MyResponsivePie from './pie_chart'
-import pie_data from '../pie_data.json'
+import pie_data from '../files/pie_data.json'
 
 
 export function Dashboard (){

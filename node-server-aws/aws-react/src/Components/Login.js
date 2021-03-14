@@ -1,8 +1,9 @@
 import { useState, useContext } from "react"
 import axios from "axios"
 import { UserContext } from "../utils/user_context"
-import {useHistory} from 'react-router-dom'
 import { AuthContext } from "../utils/auth_context"
+import {useHistory} from 'react-router-dom'
+
 
 
 
@@ -22,29 +23,20 @@ function Login () {
             if (result.auth === true) {
                 setUser(result.id);
                 setAuth(true);
-                console.log(result.id)
                 history.push(('/main/' + result.id + '/' + (username)))
             }
         })
     }
 
-    function register_click(){
-        axios.post('http://localhost:5000/users/register', {username: username, password: password})
-        .then(res => {
-            console.log(res.data)
-        })
-
-    }
-
     return (
         <div>
             <p>Enter your username here</p>
-            <input id="username" type="text" onChange={e => setusername(e.target.value)}/>
+            <input className="text_input" type="text" onChange={e => setusername(e.target.value)}/>
             <p>Enter password here</p>
-            <input  id="passord" type="text" onChange={e => setpassword(e.target.value)}/>
+            <input  className="text_input" type="text" onChange={e => setpassword(e.target.value)}/>
             <div>
                 <button className='button' onClick={ () => {login_click()}}>Login</button>
-                <button className='button' onClick={ () => {register_click()}}>Register</button>
+                <button className='button' onClick={ () => {history.push('/register')}}>Register</button>
             </div>
         </div>
     )

@@ -14,10 +14,8 @@ router.route('/login').post((req,res) => {
         .then(login_data => {if (login_data.password === pass){
             res.json({auth:true,
             id:login_data.id})
-            console.log("auth passed")
         } else {
             res.json({auth:false})
-            console.log("auth failed")
         }})
         .catch(err => res.status(400).json('Error: ' + err))
 })
