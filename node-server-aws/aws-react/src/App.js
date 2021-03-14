@@ -30,6 +30,10 @@ function App() {
                   <Route path="/thank_you" component={thank_you} />
                 </Switch>
               </Router>
+            <div className='bottom-container'>
+                <div className='smaller_footer_area'></div>
+                <div className='footer_area'> <p>Thanks to Bensound for supplying the music used in this project</p></div>
+            </div>
         </div>
       </AuthContext.Provider>
     </UserContext.Provider>

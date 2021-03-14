@@ -39,7 +39,7 @@ function Choice_page () {
 
     function dashboard_button(){
         return (
-        <button className='track_select' onClick={ () => history.push("/dashboard/" + username)}>
+        <button className='button' onClick={ () => history.push("/dashboard/" + username)}>
             go to dashboard
             </button>)
     }

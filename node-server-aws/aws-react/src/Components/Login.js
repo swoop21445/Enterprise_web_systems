@@ -9,8 +9,9 @@ import {useHistory} from 'react-router-dom'
 
 
 function Login () {
-    const [username, setusername] = useState("testu")
-    const [password, setpassword] = useState("testp")
+    const [username, setusername] = useState(" ")
+    const [password, setpassword] = useState(" ")
+    const [errmsg,setErrmsg] = useState(" ")
     const {user, setUser} = useContext(UserContext)
     const {auth, setAuth} = useContext(AuthContext)
     
@@ -24,18 +25,27 @@ function Login () {
                 setUser(result.id);
                 setAuth(true);
                 history.push(('/main/' + result.id + '/' + (username)))
+            } else {
+                setErrmsg("Username or Password Incorrect!")
             }
         })
+        .catch(res => setErrmsg("Username or Password Incorrect! Have you registered your account?"))
     }
 
     return (
         <div>
+            <h1>Track Picker</h1>
             <p>Enter your username here</p>
             <input className="text_input" type="text" onChange={e => setusername(e.target.value)}/>
             <p>Enter password here</p>
-            <input  className="text_input" type="text" onChange={e => setpassword(e.target.value)}/>
-            <div>
+            <input  className="text_input" type="password" onChange={e => setpassword(e.target.value)}/>
+            <div className='login_spacer'>
                 <button className='button' onClick={ () => {login_click()}}>Login</button>
+            </div>
+            <p className="errmsg">{errmsg}</p>
+            <div>
+                <p>Never logged in before?</p>
+                <p>Start here!</p>
                 <button className='button' onClick={ () => {history.push('/register')}}>Register</button>
             </div>
         </div>

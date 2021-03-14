@@ -36,7 +36,7 @@ function Register () {
             login()
         })
     } else {
-        setErrmsg("Your password enties don't match!")
+        setErrmsg("Your password entries don't match!")
     }
 
     }
@@ -48,10 +48,10 @@ return (
             <p>Enter your username here</p>
             <input className="text_input" type="text" onChange={e => setUsername(e.target.value)}/>
             <p>Enter password here</p>
-            <input  className="text_input" type="text" onChange={e => setPassword(e.target.value)}/>
+            <input  className="text_input" type="password" onChange={e => setPassword(e.target.value)}/>
             <p>Please re-enter your password</p>
-            <input className="text_input" type="text" onChange={e => setPassword_confirmation(e.target.value)}/>
-            <div>
+            <input className="text_input" type="password" onChange={e => setPassword_confirmation(e.target.value)}/>
+            <div className='login_spacer'>
             <button className='button' onClick={ () => {register_click()}}>Register Now</button>
             </div>
             <p className="errmsg">{errmsg}</p>
