@@ -73,7 +73,7 @@ function Choice_page () {
                                 controls
                             />
                             <div>
-                            <button className='track_select' onClick={ () => {send_data("High Octane")}}>Select this track</button>
+                            <button className='button' onClick={ () => {send_data("High Octane")}}>Select this track</button>
                             </div>
                         </div>
                  </div>
@@ -85,7 +85,7 @@ function Choice_page () {
                         controls
                         />
                         <div>
-                        <button className='track_select' onClick={ () => {send_data("All That")}}>Select this track</button>
+                        <button className='button' onClick={ () => {send_data("All That")}}>Select this track</button>
                         </div>
                     </div>
                 </div>

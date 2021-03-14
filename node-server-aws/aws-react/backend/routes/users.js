@@ -44,7 +44,6 @@ router.route('/admin_check').post((req,res) => {
             res.json({admin:false})
         }})
         .catch(err => res.status(400).json('Error: ' + err))
-
 })
 
 router.route('/update').post((req,res) => {
@@ -69,5 +68,10 @@ router.route('/all_that').get((req,res) => {
         .catch(err => res.status(400).json("Error: " + err))
 })
 
+router.route('/default').get((req,res) => {
+    User.countDocuments({song:"default"})
+        .then(count => res.json({default: count}))
+        .catch(err => res.status(400).json("Error: " + err))
+})
 
 module.exports = router;

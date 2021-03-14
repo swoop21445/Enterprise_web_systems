@@ -1,0 +1,20 @@
+[
+    {
+      "id": "No Selection",
+      "label": "No selection",
+      "value": 0,
+      "color": "hsl(261, 70%, 50%)"
+    },
+    {
+      "id": "High Octane",
+      "label": "High Octane",
+      "value": 0,
+      "color": "hsl(164, 70%, 50%)"
+    },
+    {
+      "id": "All_that",
+      "label": "All That",
+      "value": 0,
+      "color": "hsl(188, 70%, 50%)"
+    }
+  ]

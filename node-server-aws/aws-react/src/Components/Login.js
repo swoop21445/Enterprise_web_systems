@@ -43,8 +43,8 @@ function Login () {
             <p>Enter password here</p>
             <input  id="passord" type="text" onChange={e => setpassword(e.target.value)}/>
             <div>
-                <button className='login' onClick={ () => {login_click()}}>Login</button>
-                <button className='Register' onClick={ () => {register_click()}}>Register</button>
+                <button className='button' onClick={ () => {login_click()}}>Login</button>
+                <button className='button' onClick={ () => {register_click()}}>Register</button>
             </div>
         </div>
     )
