@@ -18,6 +18,7 @@ function Choice_page () {
     const [admin, setAdmin] = useState(false)
     const history = useHistory();
 
+    //checks user authorisaztion on render if fails user is redirected
     useEffect(() => {
         if (id === user && auth){
             console.log(id)
@@ -29,7 +30,7 @@ function Choice_page () {
     })
 
     function send_data(song) {
-        axios.post('http://localhost:5000/users/update', {user: username , song: song})
+        axios.post('http://3.20.232.9:4000/users/update', {user: username , song: song})
         .then(res => {
             console.log(res.data)
         history.push('/thank_you')
@@ -45,7 +46,7 @@ function Choice_page () {
     }
 
     function admin_post(){
-        axios.post('http://localhost:5000/users/admin_check', {username: username})
+        axios.post('http://3.20.232.9:4000/users/admin_check', {username: username})
                 .then(res => {
                     const result = res.data
                     setAdmin(result.admin)

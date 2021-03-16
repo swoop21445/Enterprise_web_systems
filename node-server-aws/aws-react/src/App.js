@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route , Switch} from 'react-router-dom';
 import { UserContext } from './utils/user_context';
 import { AuthContext } from './utils/auth_context';
 
+//components import
 import Choice_page from './Components/choice-page';
 import login from './Components/Login';
 import register from './Components/register';

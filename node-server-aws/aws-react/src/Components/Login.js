@@ -18,7 +18,7 @@ function Login () {
     const history = useHistory();
 
     function login_click(){
-        axios.post('http://localhost:4000/login', {username: username , password: password})
+        axios.post('http://3.20.232.9:4000/login', {username: username , password: password})
         .then(res => {
             const result = res.data;
             if (result.auth === true) {

@@ -13,7 +13,7 @@ export function Dashboard (){
     const history = useHistory()
 
     useEffect(() => {
-        axios.post('http://localhost:5000/users/admin_check', {username: username})
+        axios.post('http://3.20.232.9:4000/users/admin_check', {username: username})
             .then(res => {
                 const result = res.data
                 if (result.admin){
@@ -29,7 +29,7 @@ export function Dashboard (){
 
     
     function get_octane_count() {
-        axios.get('http://localhost:5000/users/octane')
+        axios.get('http://3.20.232.9:4000/users/octane')
             .then((res) => {
                 const result = res.data
                 const count = result.octane
@@ -39,7 +39,7 @@ export function Dashboard (){
     }
 
     function get_all_that_count() {
-        axios.get('http://localhost:5000/users/all_that')
+        axios.get('http://3.20.232.9:4000/users/all_that')
             .then((res) => {
                 const result = res.data
                 const all_that_count = result.all_that
@@ -49,7 +49,7 @@ export function Dashboard (){
     }
 
     function get_no_selection_count() {
-        axios.get('http://localhost:5000/users/default')
+        axios.get('http://3.20.232.9:4000/users/default')
             .then((res) => {
                 const result = res.data
                 const default_count = result.default
