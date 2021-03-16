@@ -1,12 +1,6 @@
 const router = require('express').Router();
 let User = require('../models/user.model')
-
-router.route('/').get((req,res) => {
-    User.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json('Error: ' + err))
-})
-
+//login route
 router.route('/login').post((req,res) => {
     const user = req.body.username;
     const pass = req.body.password;
@@ -48,12 +42,12 @@ router.route('/update').post((req,res) => {
     const user = req.body.user;
     const song = req.body.song;
     const query = {username: user}
-
+    //find one by id never worked because the id parse from string to object did't work
     User.findOneAndUpdate(query, {song:song})
         .then(() => res.json("song updated"))
         .catch(err => res.status(400).json('Error: ' + err))
 })
-
+//routes for gathering song data fro database
 router.route('/octane').get((req,res) => {
     User.countDocuments({song:"High Octane"})
         .then(high_octane => res.json({octane:high_octane}))

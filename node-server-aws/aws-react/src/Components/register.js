@@ -18,7 +18,7 @@ function Register () {
     const history = useHistory()
 
     function login(){
-        axios.post('http://localhost:5000/users/login', {username: username , password: password})
+        axios.post('http://3.20.232.9:4000/users/login', {username: username , password: password})
         .then(res => {
             const result = res.data;
             if (result.auth === true) {
@@ -31,7 +31,7 @@ function Register () {
 
     function register_click(){
         if (password === password_confirmation){
-        axios.post('http://localhost:5000/users/register', {username: username, password: password})
+        axios.post('http://3.20.232.9:4000/users/register', {username: username, password: password})
         .then(res => {
             login()
         })
