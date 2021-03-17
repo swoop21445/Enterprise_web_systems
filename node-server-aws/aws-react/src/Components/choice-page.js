@@ -13,7 +13,9 @@ import axios from 'axios'
 
 function Choice_page () {
     let {id , username} = useParams();
+    // eslint-disable-next-line
     const {auth, setAuth} = useContext(AuthContext);
+    // eslint-disable-next-line
     const {user,setUser} = useContext(UserContext)
     const [admin, setAdmin] = useState(false)
     const history = useHistory();
@@ -21,9 +23,6 @@ function Choice_page () {
     //checks user authorisaztion on render if fails user is redirected
     useEffect(() => {
         if (id === user && auth){
-            console.log(id)
-            console.log(user)
-            console.log("auth successful")
         } else {
             history.push('/')
         }
@@ -32,7 +31,6 @@ function Choice_page () {
     function send_data(song) {
         axios.post('http://3.20.232.9:4000/users/update', {user: username , song: song})
         .then(res => {
-            console.log(res.data)
         history.push('/thank_you')
         })
 
@@ -67,6 +65,7 @@ function Choice_page () {
             <header><h1>Pick the track you like best!</h1></header>
                 <div className ='container'>
                     <div className='track-item'>
+                        <h3>High Octane</h3>
                         <img alt='track 1 high octane' src={highoctaneimg}></img>
                         <div className = 'track_footer'>
                             <ReactAudioPlayer
@@ -79,6 +78,7 @@ function Choice_page () {
                         </div>
                  </div>
                      <div className = 'track-item'>
+                        <h3>All That</h3>
                         <img alt='track 2 all that' src={allthatimg}></img>
                         <div className = 'track_footer'>
                         <ReactAudioPlayer

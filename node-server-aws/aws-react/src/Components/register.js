@@ -12,7 +12,9 @@ function Register () {
     const [password_confirmation, setPassword_confirmation] = useState(" ")
     const [errmsg,setErrmsg] = useState(" ")
 
+    // eslint-disable-next-line
     const {user, setUser} = useContext(UserContext)
+    // eslint-disable-next-line
     const {auth, setAuth} = useContext(AuthContext)
     
     const history = useHistory()
