@@ -1,5 +1,5 @@
 import highoctaneimg from '../files/highoctane.jpg'
-import high_octane from '../files/bensound-highoctane.ogg'
+import high_octane from '../files/bensound-highoctane.mp3'
 import allthatimg from '../files/allthat.jpg'
 import all_that from '../files/bensound-allthat.mp3'
 

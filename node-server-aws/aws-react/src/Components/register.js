@@ -44,7 +44,8 @@ function Register () {
 
 return (
 
-<div>
+<div>   
+            <h1>Register</h1>
             <p>Enter your username here</p>
             <input className="text_input" type="text" onChange={e => setUsername(e.target.value)}/>
             <p>Enter password here</p>
